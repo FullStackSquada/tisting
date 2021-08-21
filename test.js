@@ -155,23 +155,3 @@ describe("Testing role APIs", () => {
     expect(newUser.statusCode).toBe(201);
   });
 });
-describe("Testing login APIs", () => {
-    const userInfo = {
-        firstName: "Ahmad",
-        lastName: "Hamad",
-        age: 24,
-        gender: "male",
-        country:"jordan",
-        phoneNumber:"0000",
-        email: "a@bb.com",
-        password: "a123",
-    };
-  it("shuold be able to creat a user", async () => {
-    const newUser =  await request(app).post("/user/createUser").send(userInfo);
-    const res =  await request(app).post("/login").send({email: "a@bb.com",
-    password: "a123"});
-    expect(typeof res.body).toEqual(typeof userInfo);
-    // expect(newUser.body).toHaveProperty("token");
-    expect(newUser.statusCode).toBe(200);
-  });
-});
